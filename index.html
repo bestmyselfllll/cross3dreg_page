@@ -50,10 +50,6 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   
   <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 
@@ -81,12 +77,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
   
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <!-- Fonts - self-hosted Inter, see @font-face in static/css/index.css -->
+  <link rel="preload" href="static/fonts/inter/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
   <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/bulma-carousel.min.js"></script>
   <script defer src="static/js/bulma-slider.min.js"></script>
@@ -291,7 +286,7 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
 <!-- Interactive registration viewer -->
 <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container is-max-desktop" id="registration-results">
+    <div class="container is-max-widescreen" id="registration-results">
       <h2 class="title is-3 has-text-centered">Interactive 3D Registration Results</h2>
       <div class="columns is-vcentered is-mobile is-multiline">
         <div class="column is-narrow">
@@ -328,19 +323,24 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
             <span class="icon"><i class="fas fa-sync-alt"></i></span>
           </button>
         </div>
+        <div class="column is-full">
+          <div class="buttons has-addons is-centered" role="group" aria-label="Cloud data to display">
+            <button class="button" type="button" data-mode="image" aria-pressed="false">Image</button>
+            <button class="button" type="button" data-mode="raw" aria-pressed="false">Raw clouds</button>
+            <button class="button" type="button" data-mode="correspondences" aria-pressed="false">Correspondences</button>
+            <button class="button" type="button" data-mode="superpoints" aria-pressed="false">Superpoints</button>
+          </div>
+        </div>
       </div>
 
       <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div id="registration-viewer" class="publication-video" style="background:#111827">
+        <div class="column is-full">
+          <div id="registration-viewer" class="publication-video registration-viewer-frame" style="background:#111827">
             <canvas id="registration-canvas" aria-label="Interactive point cloud showing the target and transformed source points" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none"></canvas>
+            <img id="sample-image" alt="" />
             <p id="viewer-status" role="status" style="position:absolute;left:1rem;top:.75rem;color:white;z-index:1">Loading point clouds...</p>
           </div>
-          <div class="is-flex is-justify-content-center is-flex-wrap-wrap mt-3">
-            <span class="tag is-light m-1"><span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:50%;background:#4ec4dd;margin-right:.45em"></span>Target</span>
-            <span class="tag is-light m-1"><span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:50%;background:#ff856c;margin-right:.45em"></span>Estimated source</span>
-            <span class="tag is-light m-1"><span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:50%;background:#83d6a1;margin-right:.45em"></span>Ground-truth source</span>
-          </div>
+          <div id="viewer-legend" class="is-flex is-justify-content-center is-flex-wrap-wrap mt-3" aria-live="polite"></div>
         </div>
       </div>
 
@@ -349,14 +349,14 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
         <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-rte">--</strong><br><span>RTE</span></div>
         <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-ir">--</strong><br><span>Inlier ratio</span></div>
         <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-mask">--</strong><br><span>Mask precision</span></div>
-        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-recall">--</strong><br><span>Pair recall</span></div>
+        <!-- <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-recall">--</strong><br><span>Pair recall</span></div> -->
       </div>
-      <p class="has-text-centered mt-2">
+      <!-- <p class="has-text-centered mt-2">
         <a id="download-estimate" href="visual/000029_000029/est_transform_src.ply" download>Estimated source PLY</a>
         &nbsp;|&nbsp;
         <a id="download-ground-truth" href="visual/000029_000029/gt_transform_src.ply" download>Ground-truth source PLY</a>
       </p>
-      <p class="is-size-7 has-text-grey has-text-centered">Per-sample metrics are loaded from the corresponding visual/out.txt file.</p>
+      <p class="is-size-7 has-text-grey has-text-centered">Per-sample metrics are loaded from the corresponding visual/out.txt file.</p> -->
     </div>
   </div>
 </section>
@@ -393,7 +393,7 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
 
 
 <!-- Quantitative results -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Results on Cross3DReg</h2>
@@ -410,7 +410,7 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
       <p class="is-size-7 has-text-grey">RRE and RTE denote relative rotation and translation error. Registration recall is the percentage of pairs whose rotation and translation errors both satisfy the evaluation thresholds.</p>
     </div>
   </div>
-  </section>
+  </section> -->
 <!-- End quantitative results -->
 
 
