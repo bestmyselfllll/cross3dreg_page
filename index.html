@@ -5,59 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+  <meta name="title" content="Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark">
+  <meta name="description" content="Cross3DReg presents 13,231 real-world cross-source LiDAR pairs and an image-guided registration method for robust outdoor point cloud alignment.">
+  <meta name="keywords" content="Cross3DReg, cross-source point cloud registration, LiDAR, benchmark, multimodal registration">
+  <meta name="author" content="Zongyi Xu, Zhongpeng Lang, Yilong Chen, Shanshan Zhao, Xiaoshui Huang, Sean Bin Yang, Yan Zhang, Qianni Zhang, Xinbo Gao">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="og:site_name" content="Cross3DReg">
+  <meta property="og:title" content="Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark">
+  <meta property="og:description" content="13,231 real-world cross-source LiDAR pairs and an image-guided registration method for outdoor scenes.">
+  <meta property="og:image" content="assets/figures/registration-comparison.webp">
+  <meta property="og:image:alt" content="Cross3DReg registration results on real outdoor point clouds">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="Point Cloud Registration">
+  <meta property="article:tag" content="LiDAR Benchmark">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:title" content="Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark">
+  <meta name="twitter:description" content="13,231 real-world cross-source LiDAR pairs and an image-guided registration method for outdoor scenes.">
+  <meta name="twitter:image" content="assets/figures/registration-comparison.webp">
+  <meta name="twitter:image:alt" content="Cross3DReg registration results on real outdoor point clouds">
 
   <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+  <meta name="citation_title" content="Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark">
+  <meta name="citation_author" content="Xu, Zongyi">
+  <meta name="citation_author" content="Lang, Zhongpeng">
+  <meta name="citation_author" content="Chen, Yilong">
+  <meta name="citation_author" content="Zhao, Shanshan">
+  <meta name="citation_author" content="Huang, Xiaoshui">
+  <meta name="citation_author" content="Yang, Sean Bin">
+  <meta name="citation_author" content="Zhang, Yan">
+  <meta name="citation_author" content="Zhang, Qianni">
+  <meta name="citation_author" content="Gao, Xinbo">
+  <meta name="citation_pdf_url" content="static/pdfs/cross3dreg.pdf">
   
   <!-- Additional SEO -->
   <meta name="theme-color" content="#2563eb">
@@ -73,8 +57,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
+  <title>Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark</title>
   
   <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -109,72 +92,30 @@
   <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
   
-  <!-- Structured Data for Academic Papers -->
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark",
+    "description": "Cross3DReg presents 13,231 real-world cross-source LiDAR pairs and an image-guided registration method for robust outdoor point cloud alignment.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Zongyi Xu"},
+      {"@type": "Person", "name": "Zhongpeng Lang"},
+      {"@type": "Person", "name": "Yilong Chen"},
+      {"@type": "Person", "name": "Shanshan Zhao"},
+      {"@type": "Person", "name": "Xiaoshui Huang"},
+      {"@type": "Person", "name": "Sean Bin Yang"},
+      {"@type": "Person", "name": "Yan Zhang"},
+      {"@type": "Person", "name": "Qianni Zhang"},
+      {"@type": "Person", "name": "Xinbo Gao"}
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
     "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
+    "keywords": ["Cross-source point cloud registration", "LiDAR", "Benchmark"],
+    "url": "https://github.com/bestmyselfllll/Cross3DReg"
   }
   </script>
 </head>
@@ -188,45 +129,40 @@
 
   <!-- More Works Dropdown -->
   <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="Open Cross3DReg project links">
+      <i class="fas fa-link"></i>
+      Project Links
       <i class="fas fa-chevron-down dropdown-arrow"></i>
     </button>
     <div class="more-works-dropdown" id="moreWorksDropdown">
       <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
+        <h4>Cross3DReg Resources</h4>
         <button class="close-btn" onclick="toggleMoreWorks()">
           <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
+        <a href="static/pdfs/cross3dreg.pdf" class="work-item" target="_blank" rel="noopener noreferrer">
           <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
+            <h5>Manuscript</h5>
+            <p>Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark</p>
+            <span class="work-venue">Paper PDF</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
+        <a href="https://github.com/bestmyselfllll/Cross3DReg" class="work-item" target="_blank" rel="noopener noreferrer">
           <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
+            <h5>Dataset and code</h5>
+            <p>Cross3DReg project repository</p>
+            <span class="work-venue">GitHub</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
+        <a href="#registration-results" class="work-item">
           <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
+            <h5>Registration viewer</h5>
+            <p>Explore estimated and ground-truth point clouds</p>
+            <span class="work-venue">Interactive 3D</span>
           </div>
           <i class="fas fa-external-link-alt"></i>
         </a>
@@ -240,31 +176,27 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark</h1>
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+              <span class="author-block">Zongyi Xu<sup>1</sup>,</span>
+              <span class="author-block">Zhongpeng Lang<sup>1</sup>,</span>
+              <span class="author-block">Yilong Chen<sup>1</sup>,</span>
+              <span class="author-block">Shanshan Zhao<sup>2</sup>,</span>
+              <span class="author-block">Xiaoshui Huang<sup>3</sup>,</span>
+              <span class="author-block">Sean Bin Yang<sup>1</sup>,</span>
+              <span class="author-block">Yan Zhang<sup>1</sup>,</span>
+              <span class="author-block">Qianni Zhang<sup>4</sup>,</span>
+              <span class="author-block">Xinbo Gao<sup>1</sup></span>
+            </div>
 
                   <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <span class="author-block"><sup>1</sup>Chongqing University of Posts and Telecommunications<br><sup>2</sup>Alibaba Group &nbsp; <sup>3</sup>Shanghai Jiao Tong University<br><sup>4</sup>Queen Mary University of London</span>
                   </div>
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                        <a href="static/pdfs/cross3dreg.pdf" target="_blank" rel="noopener noreferrer"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -273,38 +205,15 @@
                       </a>
                     </span>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
                   <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    <a href="https://github.com/bestmyselfllll/Cross3DReg" target="_blank" rel="noopener noreferrer"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Dataset and Code</span>
                   </a>
                 </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
             </div>
           </div>
         </div>
@@ -314,19 +223,14 @@
 </section>
 
 
-<!-- Teaser video-->
+<!-- Teaser figure -->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+      <img src="assets/figures/framework.webp" alt="Qualitative comparison of cross-source point cloud registration methods on Cross3DReg scenes" loading="eager">
+      <!-- <h2 class="subtitle has-text-centered">
+        Cross-source registration results on real outdoor scenes captured by heterogeneous LiDAR sensors.
+      </h2> -->
     </div>
   </div>
 </section>
@@ -339,9 +243,11 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Point cloud registration aligns point clouds acquired from different viewpoints or sensing devices. Cross-source point cloud registration specifically aims to align point clouds captured by heterogeneous LiDAR sensors with substantially divergent sampling patterns and densities.
+Compared to the same-source point cloud registration, cross-source registration faces two core challenges: the lack of publicly available  real-world datasets for training the deep registration models and the inherent difference in point clouds captured by multiple sensors. The diverse patterns induced by sensors pose great challenges in robust and accurate point cloud feature extraction and matching, which negatively influence the registration accuracy. To address these challenges, we introduce Cross3DReg, a large-scale real-world outdoor benchmark collected using two heterogeneous LiDAR sensors: a rotating mechanical LiDAR and a hybrid semi-solid-state LiDAR. Moreover, an overlap-based cross-source registration framework is designed to utilize unaligned images to predict the overlapping region between the source and target. By filtering out redundant points in non-overlapping regions, the framework effectively reduces interference from noise and irrelevant points.
+Then, a visual-geometric attention guided matching module is proposed to enhance the consistency of cross-source point cloud features by fusing image and geometric information to establish reliable correspondences and ultimately achieve accurate and robust registration.
+
           </p>
         </div>
       </div>
@@ -351,127 +257,166 @@
 <!-- End paper abstract -->
 
 
-<!-- Image carousel -->
+<!-- Image gallery -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
+      <h2 class="title is-3 has-text-centered">Cross3DReg: A Real-world Outdoor Benchmark</h2>
+      <div class="columns is-variable is-5 figure-grid">
+        <div class="column is-half">
+          <figure class="figure-card">
+            <img src="assets/figures/collection-platform.webp" alt="Collection platform with two LiDAR sensors and RGB cameras" loading="lazy"/>
+            <figcaption class="subtitle has-text-centered">
+              A data-collection platform equipped with heterogeneous LiDAR sensors and cameras.
+            </figcaption>
+          </figure>
+        </div>
+        <div class="column is-half">
+          <figure class="figure-card">
+            <img src="assets/figures/sensor-gap.webp" alt="Pattern, density, noise, and outlier differences between the two LiDAR sensors" loading="lazy"/>
+            <figcaption class="subtitle has-text-centered">
+              Real sensor differences in scan pattern, point density, noise, and outliers.
+            </figcaption>
+          </figure>
+        </div>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
+<!-- End image gallery -->
 
 
 
 
-<!-- Youtube video -->
+<!-- Interactive registration viewer -->
 <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+    <div class="container is-max-desktop" id="registration-results">
+      <h2 class="title is-3 has-text-centered">Interactive 3D Registration Results</h2>
+      <div class="columns is-vcentered is-mobile is-multiline">
+        <div class="column is-narrow">
+          <label for="sample-select"><strong>Sample</strong></label>
+        </div>
+        <div class="column is-narrow">
+          <div class="select">
+            <select id="sample-select" aria-label="Choose a registration sample">
+              <option value="000029_000029">000029</option>
+              <option value="000032_000032">000032</option>
+              <option value="000210_000210">000210</option>
+              <option value="000387_000387">000387</option>
+              <option value="000898_000898">000898</option>
+              <option value="000961_000961">000961</option>
+              <option value="001634_001634">001634</option>
+              <option value="002845_002845">002845</option>
+            </select>
+          </div>
+        </div>
+        <div class="column has-text-centered">
+          <div class="buttons has-addons is-centered" role="group" aria-label="Registration result to display">
+            <button class="button is-selected" type="button" data-mode="estimate" aria-pressed="true">Estimate</button>
+            <button class="button" type="button" data-mode="ground-truth" aria-pressed="false">Ground Truth</button>
+            <button class="button" type="button" data-mode="compare" aria-pressed="false">Compare</button>
+          </div>
+        </div>
+        <div class="column is-narrow">
+          <button id="rotation-toggle" class="button is-dark" type="button" aria-pressed="true" title="Pause automatic rotation">
+            <span class="icon"><i class="fas fa-pause"></i></span><span>Pause rotation</span>
+          </button>
+        </div>
+        <div class="column is-narrow">
+          <button id="reset-view" class="button is-dark" type="button" aria-label="Reset camera view" title="Reset camera view">
+            <span class="icon"><i class="fas fa-sync-alt"></i></span>
+          </button>
+        </div>
+      </div>
+
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div id="registration-viewer" class="publication-video" style="background:#111827">
+            <canvas id="registration-canvas" aria-label="Interactive point cloud showing the target and transformed source points" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none"></canvas>
+            <p id="viewer-status" role="status" style="position:absolute;left:1rem;top:.75rem;color:white;z-index:1">Loading point clouds...</p>
+          </div>
+          <div class="is-flex is-justify-content-center is-flex-wrap-wrap mt-3">
+            <span class="tag is-light m-1"><span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:50%;background:#4ec4dd;margin-right:.45em"></span>Target</span>
+            <span class="tag is-light m-1"><span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:50%;background:#ff856c;margin-right:.45em"></span>Estimated source</span>
+            <span class="tag is-light m-1"><span aria-hidden="true" style="display:inline-block;width:.8em;height:.8em;border-radius:50%;background:#83d6a1;margin-right:.45em"></span>Ground-truth source</span>
           </div>
         </div>
       </div>
+
+      <div id="sample-metrics" class="columns is-mobile is-multiline has-text-centered" aria-live="polite">
+        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-rre">--</strong><br><span>RRE</span></div>
+        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-rte">--</strong><br><span>RTE</span></div>
+        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-ir">--</strong><br><span>Inlier ratio</span></div>
+        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-mask">--</strong><br><span>Mask precision</span></div>
+        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-recall">--</strong><br><span>Pair recall</span></div>
+      </div>
+      <p class="has-text-centered mt-2">
+        <a id="download-estimate" href="visual/000029_000029/est_transform_src.ply" download>Estimated source PLY</a>
+        &nbsp;|&nbsp;
+        <a id="download-ground-truth" href="visual/000029_000029/gt_transform_src.ply" download>Ground-truth source PLY</a>
+      </p>
+      <p class="is-size-7 has-text-grey has-text-centered">Per-sample metrics are loaded from the corresponding visual/out.txt file.</p>
     </div>
   </div>
 </section>
-<!-- End youtube video -->
+<!-- End interactive registration viewer -->
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
+<!-- Registration framework -->
+<!-- <section class="hero is-small">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Overlap-based Cross-source Registration</h2>
+      <figure>
+        <img src="assets/figures/framework.webp" alt="Cross3DReg method pipeline with Overlapping Mask Prediction and Visual-geometric Attention-guided Matching" loading="lazy">
+        <figcaption class="has-text-centered">The proposed framework predicts likely overlap regions, filters redundant points, then uses image and geometric attention to establish correspondences.</figcaption>
+      </figure>
+      <div class="columns is-variable is-6 mt-4">
+        <div class="column">
+          <h3 class="title is-5">Overlapping Mask Predictor (OMP)</h3>
+          <p>Image features and coarse point-cloud geometry predict points in the shared region. Filtering non-overlapping regions reduces interference from noise and irrelevant points.</p>
         </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
+        <div class="column">
+          <h3 class="title is-5">Visual-geometric Attention-guided Matching (VGAM)</h3>
+          <p>Visual context and geometric structure are fused to improve cross-source feature consistency and produce reliable correspondences. Camera-LiDAR calibration is not required.</p>
         </div>
       </div>
     </div>
   </div>
-</section>
-<!-- End video carousel -->
+</section> -->
+<!-- End registration framework -->
 
 
 
 
 
 
-<!-- Paper poster -->
+<!-- Quantitative results -->
 <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Results on Cross3DReg</h2>
+      <div class="table-container">
+        <table class="table is-fullwidth is-striped is-hoverable has-text-centered">
+          <thead><tr><th>Method</th><th>RRE (&deg;) &darr;</th><th>RTE (m) &darr;</th><th>Registration Recall (%) &uarr;</th></tr></thead>
+          <tbody>
+            <tr><th>GeoTrans</th><td>18.15</td><td>1.69</td><td>81.7</td></tr>
+            <tr><th>PARE-Net</th><td>6.69</td><td>0.96</td><td>68.4</td></tr>
+            <tr class="is-selected"><th>Cross3DReg (Ours)</th><td><strong>6.68</strong></td><td>1.01</td><td><strong>86.2</strong></td></tr>
+          </tbody>
+        </table>
     </div>
+      <p class="is-size-7 has-text-grey">RRE and RTE denote relative rotation and translation error. Registration recall is the percentage of pairs whose rotation and translation errors both satisfy the evaluation thresholds.</p>
+    </div>
+  </div>
   </section>
-<!--End paper poster -->
+<!-- End quantitative results -->
 
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
+<section class="section" id="Citation">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
         <h2 class="title">BibTeX</h2>
@@ -480,18 +425,21 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@article{xu_cross3dreg,
+  title={Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark},
+  author={Xu, Zongyi and Lang, Zhongpeng and Chen, Yilong and Zhao, Shanshan and Huang, Xiaoshui and Yang, Sean Bin and Zhang, Yan and Zhang, Qianni and Gao, Xinbo},
+  journal={International Journal of Computer Vision},
+  volume={134},
+  number={11},
+  pages={490},
+  year={2026},
+  publisher={Springer}
 }</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
 
-
+<!-- 
   <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
@@ -508,7 +456,7 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
 
 <!-- Statcounter tracking code -->
   
@@ -516,5 +464,6 @@
 
     <!-- End of Statcounter Code -->
 
+    <script type="module" src="static/js/registration-viewer.js"></script>
   </body>
   </html>

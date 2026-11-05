@@ -253,13 +253,12 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-.results-carousel {
-  overflow: hidden;
+.figure-grid {
   padding: 1rem 0;
 }
 
-.results-carousel .item {
-  margin: 1rem;
+.figure-card {
+  margin: 0;
   overflow: hidden;
   padding: 1.5rem;
   font-size: 0;
@@ -268,22 +267,23 @@ body {
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   border: 1px solid var(--border-color);
+  height: 100%;
 }
 
-.results-carousel .item:hover {
+.figure-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 
-.results-carousel .item img,
-.results-carousel video {
+.figure-card img {
   margin: 0;
   border-radius: var(--border-radius);
   width: 100%;
   height: auto;
+  display: block;
 }
 
-.results-carousel .subtitle {
+.figure-card .subtitle {
   font-size: 1rem !important;
   color: var(--text-secondary);
   margin-top: 1rem;
@@ -642,8 +642,7 @@ code {
     top: auto;
   }
   
-  .results-carousel .item {
-    margin: 0.5rem;
+  .figure-card {
     padding: 1rem;
   }
   
