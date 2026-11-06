@@ -62,7 +62,7 @@ const LEGENDS = {
   superpoints: [
     ["point", "#4ec4dd", "Target"],
     ["point", "#fbbf24", "Target superpoints"],
-    ["point", "#c084fc", "Predicted filtered superpoints"]
+    ["point", "#c084fc", "Overlap superpoints"]
   ]
 };
 
@@ -130,10 +130,7 @@ function modeGeometries(mode) {
 }
 
 function maybeFitForMode(mode) {
-  if (!targetPoints || mode === "image") {
-    if (mode === "image") lastFitGroup = null;
-    return;
-  }
+  if (!targetPoints) return;
   const group = mode === "raw" || mode === "correspondences" ? "raw" : "ref";
   if (group === lastFitGroup) return;
   lastFitGroup = group;
@@ -142,8 +139,7 @@ function maybeFitForMode(mode) {
 
 function setMode(mode) {
   activeMode = mode;
-  viewer.classList.toggle("viewer-image-mode", mode === "image");
-  setVisible(targetPoints, mode !== "image");
+  setVisible(targetPoints, true);
   setVisible(estimatePoints, mode === "estimate" || mode === "compare");
   setVisible(truthPoints, mode === "ground-truth" || mode === "compare");
   setVisible(rawSourcePoints, mode === "raw" || mode === "correspondences");
@@ -307,9 +303,13 @@ function fetchOptionalBuffer(url) {
 // Samples normally ship the RGB preview as visual/<sample>/img.jpg, but some
 // exports name it after the sample (for example visual/000241_000241/000241.jpg).
 // An explicit data-image attribute on the <option> wins; otherwise try both
-// conventions in order and fall back to the alt text when neither exists.
+// conventions in order and hide the inset when neither exists.
 let imageCandidates = [];
 let imageCandidateIndex = 0;
+
+sampleImage.addEventListener("load", () => {
+  sampleImage.dataset.loaded = "true";
+});
 
 sampleImage.addEventListener("error", () => {
   imageCandidateIndex += 1;
@@ -317,26 +317,33 @@ sampleImage.addEventListener("error", () => {
     sampleImage.src = imageCandidates[imageCandidateIndex];
   } else {
     sampleImage.removeAttribute("src");
+    delete sampleImage.dataset.loaded;
     sampleImage.dataset.missing = "true";
   }
 });
 
-function setSampleImage(base, id, option) {
+function setSampleImage(base, id, option, label) {
   const preferred = option && option.dataset.image ? `${base}/${option.dataset.image}` : null;
   imageCandidates = [preferred, `${base}/img.jpg`, `${base}/${id.slice(0, 6)}.jpg`].filter(Boolean);
   imageCandidateIndex = 0;
+  delete sampleImage.dataset.loaded;
   delete sampleImage.dataset.missing;
-  sampleImage.alt = `RGB camera image for sample ${id.slice(0, 6)}`;
+  sampleImage.alt = `RGB camera image for ${label}`;
   sampleImage.src = imageCandidates[0];
 }
 
 async function showSample(id) {
   const version = ++loadVersion;
-  status.textContent = `Loading sample ${id.slice(0, 6)}...`;
+  const option = selector.selectedOptions[0];
+  // Label shown in the dropdown ("Sample N"); fall back to the option position.
+  const label = option && option.textContent.trim()
+    ? option.textContent.trim()
+    : `Sample ${selector.selectedIndex + 1}`;
+  status.textContent = `Loading ${label}...`;
   clearPoints();
 
   const base = `visual/${id}`;
-  setSampleImage(base, id, selector.selectedOptions[0]);
+  setSampleImage(base, id, option, label);
 
   try {
     const [
@@ -399,10 +406,10 @@ async function showSample(id) {
     if (estimateLink) estimateLink.href = `${base}/est_transform_src.ply`;
     const truthLink = document.getElementById("download-ground-truth");
     if (truthLink) truthLink.href = `${base}/gt_transform_src.ply`;
-    status.textContent = `Sample ${id.slice(0, 6)}`;
+    status.textContent = label;
   } catch (error) {
     if (version !== loadVersion) return;
-    status.textContent = "Unable to load this point-cloud sample.";
+    status.textContent = `Unable to load ${label}.`;
     console.error(error);
   }
 }

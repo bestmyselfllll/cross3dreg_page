@@ -286,26 +286,39 @@ body {
     }
 }
 
-/* Sample RGB image shown inside the viewer frame */
+/* Sample RGB image shown as a compact inset in the viewer's top-right corner */
 #sample-image {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    top: 0.75rem;
+    right: 0.75rem;
+    width: clamp(88px, 24%, 224px);
+    height: auto;
+    max-height: 40%;
+    object-fit: cover;
     background: #0b1220;
-    display: none;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 8px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4);
     z-index: 2;
     pointer-events: none;
-}
-
-.viewer-image-mode #sample-image {
-    display: block;
-}
-
-.viewer-image-mode #registration-canvas,
-.viewer-image-mode #viewer-status {
+    opacity: 0;
     visibility: hidden;
+    transition: opacity 0.25s ease;
+}
+
+/* Only reveal the inset once the image for the selected sample has loaded */
+#sample-image[data-loaded="true"] {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+    #sample-image {
+        top: 0.5rem;
+        right: 0.5rem;
+        width: clamp(72px, 30%, 140px);
+        border-radius: 6px;
+    }
 }
 
 .publication-video iframe {

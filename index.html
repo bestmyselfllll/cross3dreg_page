@@ -290,26 +290,24 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
       <h2 class="title is-3 has-text-centered">Interactive 3D Registration Results</h2>
       <div class="columns is-vcentered is-mobile is-multiline">
         <div class="column is-narrow">
-          <label for="sample-select"><strong>Sample</strong></label>
-        </div>
-        <div class="column is-narrow">
           <div class="select">
-            <!-- Add a sample by appending an <option> whose value is the folder name
-                 under visual/. The RGB preview defaults to <folder>/img.jpg; use
-                 data-image to point at a differently named file. -->
+            <!-- Samples are shown as "Sample N" in display order; the value stays the
+                 folder name under visual/ so the files can be located. The RGB
+                 preview defaults to <folder>/img.jpg; use data-image for a
+                 differently named file. -->
             <select id="sample-select" aria-label="Choose a registration sample">
-              <option value="000029_000029">000029</option>
-              <option value="000032_000032">000032</option>
-              <option value="000210_000210">000210</option>
-              <option value="000241_000241" data-image="000241.jpg">000241</option>
-              <option value="000387_000387">000387</option>
-              <option value="000829_000829">000829</option>
-              <option value="000898_000898">000898</option>
-              <option value="000961_000961">000961</option>
-              <option value="001634_001634">001634</option>
-              <option value="002740_002740">002740</option>
-              <option value="002845_002845">002845</option>
-              <option value="003166_003166">003166</option>
+              <option value="000029_000029">Sample 1</option>
+              <option value="000032_000032">Sample 2</option>
+              <option value="000210_000210">Sample 3</option>
+              <option value="000241_000241" data-image="000241.jpg">Sample 4</option>
+              <option value="000387_000387">Sample 5</option>
+              <option value="000829_000829">Sample 6</option>
+              <option value="000898_000898">Sample 7</option>
+              <option value="000961_000961">Sample 8</option>
+              <option value="001634_001634">Sample 9</option>
+              <option value="002740_002740">Sample 10</option>
+              <option value="002845_002845">Sample 11</option>
+              <option value="003166_003166">Sample 12</option>
             </select>
           </div>
         </div>
@@ -332,10 +330,9 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
         </div>
         <div class="column is-full">
           <div class="buttons has-addons is-centered" role="group" aria-label="Cloud data to display">
-            <button class="button" type="button" data-mode="image" aria-pressed="false">Image</button>
             <button class="button" type="button" data-mode="raw" aria-pressed="false">Raw clouds</button>
-            <button class="button" type="button" data-mode="correspondences" aria-pressed="false">Correspondences</button>
-            <button class="button" type="button" data-mode="superpoints" aria-pressed="false">Superpoints</button>
+            <button class="button" type="button" data-mode="correspondences" aria-pressed="false">Estimate Correspondences</button>
+            <button class="button" type="button" data-mode="superpoints" aria-pressed="false">Overlap in Image</button>
           </div>
         </div>
       </div>
@@ -344,7 +341,7 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
         <div class="column is-full">
           <div id="registration-viewer" class="publication-video registration-viewer-frame" style="background:#111827">
             <canvas id="registration-canvas" aria-label="Interactive point cloud showing the target and transformed source points" style="position:absolute;inset:0;width:100%;height:100%;touch-action:none"></canvas>
-            <img id="sample-image" alt="" />
+            <img id="sample-image" alt="" decoding="async" />
             <p id="viewer-status" role="status" style="position:absolute;left:1rem;top:.75rem;color:white;z-index:1">Loading point clouds...</p>
           </div>
           <div id="viewer-legend" class="is-flex is-justify-content-center is-flex-wrap-wrap mt-3" aria-live="polite"></div>
@@ -355,7 +352,7 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
         <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-rre">--</strong><br><span>RRE</span></div>
         <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-rte">--</strong><br><span>RTE</span></div>
         <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-ir">--</strong><br><span>Inlier ratio</span></div>
-        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-mask">--</strong><br><span>Mask precision</span></div>
+        <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-mask">--</strong><br><span>Overlap precision</span></div>
         <!-- <div class="column is-one-fifth-desktop is-half-mobile"><strong id="metric-recall">--</strong><br><span>Pair recall</span></div> -->
       </div>
       <!-- <p class="has-text-centered mt-2">
@@ -434,7 +431,7 @@ Then, a visual-geometric attention guided matching module is proposed to enhance
       </div>
       <pre id="bibtex-code"><code>@article{xu_cross3dreg,
   title={Cross3DReg: A Real-world Cross-source Point Cloud Registration Benchmark},
-  author={Xu, Zongyi and Lang, Zhongpeng and Chen, Yilong and Zhao, Shanshan and Huang, Xiaoshui and Yang, Sean Bin and Zhang, Yan and Zhang, Qianni and Gao, Xinbo},
+  author={Xu Zongyi, Lang Zhongpeng, Chen Yilong, Zhao Shanshan, Huang Xiaoshui, Yang Sean Bin, Zhang Yan, Zhang Qianni and Gao, Xinbo},
   journal={International Journal of Computer Vision},
   volume={134},
   number={11},
