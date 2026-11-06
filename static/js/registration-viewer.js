@@ -86,8 +86,10 @@ function updateMetrics(text) {
     mask: text.match(/\bmask_precision:\s*([-+\d.eE]+)/i),
     recall: text.match(/\brecall:\s*([-+\d.eE]+)/i)
   };
+  // Not every metric column is rendered on the page, so skip missing nodes.
   const set = (id, value) => {
-    document.getElementById(id).textContent = value;
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
   };
   set("metric-rre", values.rre ? `${Number(values.rre[1]).toFixed(2)}°` : "--");
   set("metric-rte", values.rte ? `${Number(values.rte[1]).toFixed(3)} m` : "--");
@@ -302,14 +304,39 @@ function fetchOptionalBuffer(url) {
     .catch(() => null);
 }
 
+// Samples normally ship the RGB preview as visual/<sample>/img.jpg, but some
+// exports name it after the sample (for example visual/000241_000241/000241.jpg).
+// An explicit data-image attribute on the <option> wins; otherwise try both
+// conventions in order and fall back to the alt text when neither exists.
+let imageCandidates = [];
+let imageCandidateIndex = 0;
+
+sampleImage.addEventListener("error", () => {
+  imageCandidateIndex += 1;
+  if (imageCandidateIndex < imageCandidates.length) {
+    sampleImage.src = imageCandidates[imageCandidateIndex];
+  } else {
+    sampleImage.removeAttribute("src");
+    sampleImage.dataset.missing = "true";
+  }
+});
+
+function setSampleImage(base, id, option) {
+  const preferred = option && option.dataset.image ? `${base}/${option.dataset.image}` : null;
+  imageCandidates = [preferred, `${base}/img.jpg`, `${base}/${id.slice(0, 6)}.jpg`].filter(Boolean);
+  imageCandidateIndex = 0;
+  delete sampleImage.dataset.missing;
+  sampleImage.alt = `RGB camera image for sample ${id.slice(0, 6)}`;
+  sampleImage.src = imageCandidates[0];
+}
+
 async function showSample(id) {
   const version = ++loadVersion;
   status.textContent = `Loading sample ${id.slice(0, 6)}...`;
   clearPoints();
 
   const base = `visual/${id}`;
-  sampleImage.src = `${base}/img.jpg`;
-  sampleImage.alt = `RGB camera image for sample ${id.slice(0, 6)}`;
+  setSampleImage(base, id, selector.selectedOptions[0]);
 
   try {
     const [
@@ -368,8 +395,10 @@ async function showSample(id) {
 
     if (metricsResponse.ok) updateMetrics(await metricsResponse.text());
     else updateMetrics("");
-    document.getElementById("download-estimate").href = `${base}/est_transform_src.ply`;
-    document.getElementById("download-ground-truth").href = `${base}/gt_transform_src.ply`;
+    const estimateLink = document.getElementById("download-estimate");
+    if (estimateLink) estimateLink.href = `${base}/est_transform_src.ply`;
+    const truthLink = document.getElementById("download-ground-truth");
+    if (truthLink) truthLink.href = `${base}/gt_transform_src.ply`;
     status.textContent = `Sample ${id.slice(0, 6)}`;
   } catch (error) {
     if (version !== loadVersion) return;
